@@ -1,0 +1,56 @@
+/* SIDEBAR ICONS START*/
+
+.sideBarIconsContainer {
+  display: flex;
+  background-color: rgb(50, 50, 50);
+  justify-content: center;
+}
+
+.sideBarIconsWrapper {
+  margin-top: 25px;
+  font-size: 14px;
+  display: block;
+  color: #959595;
+  margin-top: 50px;
+}
+
+.sideBarIconsWrapper li {
+  font-size: 15px;
+  margin: 0px;
+  min-height: 45px;
+  border-bottom: 1px solid #9595952d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  cursor: pointer;
+}
+
+li a {
+  display: flex;
+  margin: 0;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 300;
+  color: #d9d9d9;
+  width: 100%;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+li a:hover {
+  color: #959595;
+}
+
+/* SIDEBAR ICONS END*/
+
+.active-page {
+  background-color: #ff5100;
+  color: #fff;
+}
+li {
+  padding: 0px;
+  margin: 10px;
+}

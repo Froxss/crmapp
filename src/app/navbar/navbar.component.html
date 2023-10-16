@@ -1,0 +1,96 @@
+<mat-toolbar class="navBar">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+    (click)="drawer.toggle()"
+  >
+    <mat-icon style="padding-left: 20px">menu</mat-icon>
+  </button>
+  <span style="padding-left: 20px">Crm App</span>
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+  >
+    <mat-icon>calendar_month</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon>call</mat-icon>
+  </button>
+
+  <button
+    mat-button
+    [matMenuTriggerFor]="menu"
+    #menuTrigger="matMenuTrigger"
+    (mouseover)="menuTrigger.openMenu()"
+  >
+    Menu
+  </button>
+  <mat-menu #menu="matMenu" [overlapTrigger]="false">
+    <span (mouseleave)="menuTrigger.closeMenu()"></span>
+    <button mat-menu-item><mat-icon>person</mat-icon> Profile</button>
+    <button mat-menu-item><mat-icon>lock</mat-icon> Şifreni değiştir</button>
+    <button mat-menu-item><mat-icon>logout</mat-icon> Çıkış yap</button>
+  </mat-menu>
+</mat-toolbar>
+
+<div class="sideBarIconsContainer">
+  <div>
+    <app-sidebaricons
+      [selectedComponent]="selectedComponent"
+      (componentChange)="loadComponent($event)"
+    ></app-sidebaricons>
+  </div>
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <div class="sideBarContentContainer">
+        <div
+          class="sideBarList"
+          *ngFor="let item of sideBarList"
+          [ngClass]="{ 'active-page': selectedComponent === item }"
+        >
+          <a (click)="loadComponent(item)"
+            ><div class="sideBarContent">
+              <p>{{ item }}</p>
+            </div></a
+          >
+        </div>
+      </div>
+    </mat-drawer>
+    <div class="example-sidenav-content">
+      <ng-container *ngIf="selectedComponent === 'Ana Sayfa'">
+        <app-dashboard></app-dashboard>
+      </ng-container>
+      <ng-container *ngIf="selectedComponent === 'Raporlar'">
+        <app-raporshome></app-raporshome>
+      </ng-container>
+      <ng-container *ngIf="selectedComponent === 'Müşteriler'">
+        <app-customers></app-customers>
+      </ng-container>
+      <ng-container *ngIf="selectedComponent === 'Sözleşmeler'">
+        <app-contracts></app-contracts>
+      </ng-container>
+      <ng-container *ngIf="selectedComponent === 'Görüşmeler'">
+        <app-calls></app-calls>
+      </ng-container>
+      <ng-container *ngIf="selectedComponent === 'Personel'">
+        <app-personals></app-personals>
+      </ng-container>
+      <ng-container *ngIf="selectedComponent === 'Takvim'">
+        <app-calendar></app-calendar>
+      </ng-container>
+      <ng-container *ngIf="selectedComponent === 'Tahsilatlar'">
+        <app-payments></app-payments>
+      </ng-container>
+      <ng-container *ngIf="selectedComponent === 'Destek'">
+        <app-helps></app-helps>
+      </ng-container>
+    </div>
+  </mat-drawer-container>
+</div>
