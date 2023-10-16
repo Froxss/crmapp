@@ -1,33 +1,9 @@
 <div class="sideBarIconsWrapper">
-  <li [ngClass]="{ 'active-page': selectedComponent === 'Ana Sayfa' }">
-    <a (click)="loadComponent('Ana Sayfa')"><mat-icon>home</mat-icon></a>
-  </li>
-  <li [ngClass]="{ 'active-page': selectedComponent === 'Raporlar' }">
-    <a (click)="loadComponent('Raporlar')"><mat-icon>list</mat-icon></a>
-  </li>
-  <li [ngClass]="{ 'active-page': selectedComponent === 'Müşteriler' }">
-    <a (click)="loadComponent('Müşteriler')"><mat-icon>diamond</mat-icon></a>
-  </li>
-  <li [ngClass]="{ 'active-page': selectedComponent === 'Sözleşmeler' }">
-    <a (click)="loadComponent('Sözleşmeler')"><mat-icon>thumb_up</mat-icon></a>
-  </li>
-  <li [ngClass]="{ 'active-page': selectedComponent === 'Görüşmeler' }">
-    <a (click)="loadComponent('Görüşmeler')"
-      ><mat-icon>phone_callback</mat-icon></a
-    >
-  </li>
-  <li [ngClass]="{ 'active-page': selectedComponent === 'Personel' }">
-    <a (click)="loadComponent('Personel')"><mat-icon>group</mat-icon></a>
-  </li>
-  <li [ngClass]="{ 'active-page': selectedComponent === 'Takvim' }">
-    <a (click)="loadComponent('Takvim')"><mat-icon>calendar_month</mat-icon></a>
-  </li>
-  <li [ngClass]="{ 'active-page': selectedComponent === 'Tahsilatlar' }">
-    <a (click)="loadComponent('Tahsilatlar')"><mat-icon>done_all</mat-icon></a>
-  </li>
-  <li [ngClass]="{ 'active-page': selectedComponent === 'Destek' }">
-    <a (click)="loadComponent('Destek')"
-      ><mat-icon>contact_support</mat-icon></a
-    >
-  </li>
+  <div *ngFor="let item of sideBarList">
+    <li [ngClass]="{ 'active-page': selectedComponent === item.id }">
+      <a [routerLink]="item.link" (click)="loadComponent(item.id)">
+        <mat-icon>{{ item.icon }}</mat-icon>
+      </a>
+    </li>
+  </div>
 </div>

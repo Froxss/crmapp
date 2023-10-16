@@ -5,9 +5,9 @@
     aria-label="Example icon-button with menu icon"
     (click)="drawer.toggle()"
   >
-    <mat-icon style="padding-left: 20px">menu</mat-icon>
+    <mat-icon>menu</mat-icon>
   </button>
-  <span style="padding-left: 20px">Crm App</span>
+  <span>Crm App</span>
   <span class="example-spacer"></span>
   <button
     mat-icon-button
@@ -53,44 +53,21 @@
         <div
           class="sideBarList"
           *ngFor="let item of sideBarList"
-          [ngClass]="{ 'active-page': selectedComponent === item }"
+          [ngClass]="{ 'active-page': selectedComponent === item.id }"
         >
-          <a (click)="loadComponent(item)"
+          <a
+            style="text-decoration: none"
+            [routerLink]="item.link"
+            (click)="loadComponent(item.id)"
             ><div class="sideBarContent">
-              <p>{{ item }}</p>
+              <p>{{ item.id }}</p>
             </div></a
           >
         </div>
       </div>
     </mat-drawer>
     <div class="example-sidenav-content">
-      <ng-container *ngIf="selectedComponent === 'Ana Sayfa'">
-        <app-dashboard></app-dashboard>
-      </ng-container>
-      <ng-container *ngIf="selectedComponent === 'Raporlar'">
-        <app-raporshome></app-raporshome>
-      </ng-container>
-      <ng-container *ngIf="selectedComponent === 'Müşteriler'">
-        <app-customers></app-customers>
-      </ng-container>
-      <ng-container *ngIf="selectedComponent === 'Sözleşmeler'">
-        <app-contracts></app-contracts>
-      </ng-container>
-      <ng-container *ngIf="selectedComponent === 'Görüşmeler'">
-        <app-calls></app-calls>
-      </ng-container>
-      <ng-container *ngIf="selectedComponent === 'Personel'">
-        <app-personals></app-personals>
-      </ng-container>
-      <ng-container *ngIf="selectedComponent === 'Takvim'">
-        <app-calendar></app-calendar>
-      </ng-container>
-      <ng-container *ngIf="selectedComponent === 'Tahsilatlar'">
-        <app-payments></app-payments>
-      </ng-container>
-      <ng-container *ngIf="selectedComponent === 'Destek'">
-        <app-helps></app-helps>
-      </ng-container>
+      <router-outlet></router-outlet>
     </div>
   </mat-drawer-container>
 </div>
