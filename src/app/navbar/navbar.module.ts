@@ -18,6 +18,12 @@ import { HelpsComponent } from '../helps/helps.component';
 import { PaymentsComponent } from '../payments/payments.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { CallsComponent } from '../calls/calls.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatSort, MatSortModule} from '@angular/material/sort';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -40,7 +46,7 @@ import { CallsComponent } from '../calls/calls.component';
     MatToolbarModule,
     MatMenuModule,
     MatSidenavModule,
-    SidebariconsModule,
+    SidebariconsModule,MatInputModule,MatFormFieldModule,MatPaginatorModule,MatSortModule,MatTableModule
   ],
   exports: [NavbarComponent],
 })

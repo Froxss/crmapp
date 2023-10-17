@@ -20,3 +20,11 @@ li {
   background-color: #ff5100;
   color: #fff;
 }
+.footer {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: -1;
+}
